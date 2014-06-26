@@ -1,4 +1,4 @@
-package com.pshah.ds.tree;
+package com.pshah.ds.binaryTree;
 
 public class Tree {
 
