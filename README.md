@@ -6,13 +6,10 @@ and try to familiarize with different data strurcture.
 
 So far I have implemented:
 
-Binary Tree
-Heap
+Binary Tree, Heap, 2-3-4 Tree.
 
 Planning to finish below DS:
 
-Red-black tree
-2-3-4 Tree
 Graph
 HashMap
 Bi-directional Hash map
