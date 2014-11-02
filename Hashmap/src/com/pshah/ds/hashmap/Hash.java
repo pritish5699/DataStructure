@@ -7,6 +7,7 @@ public class Hash<K, V> {
 	private final int MAX_SIZE = 10;
 	LinkedList<Cell<K, V>>[] items;
 	
+	@SuppressWarnings("unchecked")
 	public Hash(){
 		items = (LinkedList<Cell<K,V>>[])new LinkedList[MAX_SIZE];
 	}
