@@ -4,7 +4,7 @@ package com.pshah.ds.trie;
 class TrieNode {
 	char content;
 	boolean endMarker;
-	int isPrefix;
+	int prefix;
 	TrieNode[] childList;
 
 	/* Constructor */
@@ -12,7 +12,7 @@ class TrieNode {
 		childList = new TrieNode[26];
 		endMarker = false;
 		content = c;
-		isPrefix = 0;
+		prefix = 0;
 	}
 
 	public TrieNode subNode(char c) {

@@ -24,7 +24,7 @@ class Trie {
 				current.childList[ch - 97] = new TrieNode(ch);
 				current = current.subNode(ch);
 			}
-			current.isPrefix++;
+			current.prefix++;
 		}
 		current.endMarker = true;
 	}
@@ -44,23 +44,34 @@ class Trie {
 	}
 
 	/* Function to remove a word */
-	public void remove(String word) {
-		if (search(word) == false) {
-			System.out.println(word + " does not exist in trie\n");
-			return;
-		}
-		TrieNode current = root;
-		for (char ch : word.toCharArray()) {
-			TrieNode child = current.subNode(ch);
-			if (child.isPrefix == 1) {
-				current.childList[child.content - 97] = null;
-				return;
-			} else {
-				child.isPrefix--;
-				current = child;
+	public boolean remove(String word) {
+		if(search(word))   // Check for string is already present, if not it cannot be deleted
+		{
+			TrieNode current = root;
+			TrieNode temp;  // To keep track of parent
+			while (current != null) {
+				//Loop over the length of string
+				for(int i=0; i < word.length(); i++)
+				{
+					temp = current;
+					//System.out.println(s.charAt(i));
+					current = current.subNode(word.charAt(i));
+					//System.out.println(current.prefix);
+					current.prefix--;
+					if(current.prefix == 0)
+					{
+						//System.out.println(current.content);
+						temp.childList[current.content - 97] = null;
+						break;
+					}
+				}
+				// remover the endmarker to indicate the word removal
+				current.endMarker = false;
+				current = null;
+				return true;
 			}
 		}
-		current.endMarker = false;
+		return false;
 	}
 
 	public void printTree(TrieNode root, int level, char[] branch) {
