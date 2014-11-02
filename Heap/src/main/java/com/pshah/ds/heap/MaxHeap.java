@@ -1,12 +1,12 @@
 package com.pshah.ds.heap;
 
-public class Heap {
+public class MaxHeap {
 
 	private Node[] heaparray;
 	private int maxsize;
 	private int currentSize;
 
-	public Heap(int max) {
+	public MaxHeap(int max) {
 		heaparray = new Node[max];
 		currentSize = 0;
 		maxsize = max;
