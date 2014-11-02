@@ -1,16 +1,23 @@
 DataStructure
 =============
-
-The reason to create this project is to prepare myself for an interview, 
-and try to familiarize with different data strurcture.
+This project is all about playing with different data structures.
 
 So far I have implemented:
-
-Binary Tree, Heap, 2-3-4 Tree.
+<ol>
+	<li>Binary Tree</li>
+	<li>Heap</li>
+	<li> 2-3-4 Tree</li>
+	<li>Trie</li>
+</ol>
 
 Planning to finish below DS:
+<ol>
+	<li>Graph</li>
+	<li>HashMap</li>
+	<li>Bi-directional Hash map</li>
+	<li>LRU cache</li>
+</ol>
 
-Graph
-HashMap
-Bi-directional Hash map
+
+
 
