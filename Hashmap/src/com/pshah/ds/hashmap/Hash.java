@@ -25,26 +25,26 @@ public class Hash<K, V> {
 		
 		LinkedList<Cell<K, V>> collided = items[hash];
 		
-		for(Cell<K, V> c: collided){
+		for(Cell<K, V> c : collided){
 			if(c.equivalent(key)){
 				collided.remove(c);
 				break;
 			}
-			Cell<K, V> cell = new Cell<K, V>(key, value);
-			collided.add(cell);
 		}
+		
+		Cell<K, V> c = new Cell<K, V>(key, value);
+		collided.add(c);
 	}
 	
 	public V get(K key){
-		int x = hashCode(key);
+		int hash = hashCode(key);
 		
-		if(items[x] == null)
+		if(items[hash] == null)
 			return null;
 		
-		LinkedList<Cell<K, V>> collied = items[x];
+		LinkedList<Cell<K, V>> collided = items[hash];
 		
-		for(Cell<K, V> c : collied){
-			
+		for(Cell<K, V> c: collided){
 			if(c.equivalent(key))
 				return c.getValue();
 		}
