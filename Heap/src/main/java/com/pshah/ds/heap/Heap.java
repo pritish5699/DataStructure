@@ -1,90 +1,93 @@
 package com.pshah.ds.heap;
 
 public class Heap {
-	
+
 	private Node[] heaparray;
 	private int maxsize;
 	private int currentSize;
-	
-	public Heap(int max)
-	{
+
+	public Heap(int max) {
 		heaparray = new Node[max];
 		currentSize = 0;
 		maxsize = max;
 	}
-	
-	public boolean isEmpty()
-	{
-		return currentSize==0;
+
+	public boolean isEmpty() {
+		return currentSize == 0;
 	}
-	
+
 	public boolean insert(int key)
 	{
-		if(currentSize >= maxsize)
+
+		if(currentSize == maxsize){
+			System.out.println("Heap is full");
 			return false;
-		Node node = new Node(key);
-		heaparray[currentSize] = node;
+		}
+		heaparray[currentSize] = new Node(key);
 		trickleUp(currentSize++);
 		return true;
 	}
-	
-	public Node remove()
-	{
+
+	public Node remove() {
 		Node root = heaparray[0];
 		heaparray[0] = heaparray[--currentSize];
 		trickleDown(0);
 		return root;
 	}
-	
-	public boolean change(int index, int newValue)
+
+	public boolean change(int index, int newVal)
 	{
 		if(index < 0 || index >= currentSize)
-			return false;
-		int oldValue = heaparray[index].idata;
-		heaparray[index].idata = newValue;
-		if(oldValue < newValue)
+			return false;		
+		int oldVal = heaparray[index].idata;
+		heaparray[index].idata = newVal;
+		
+		if(oldVal < newVal)
 			trickleUp(index);
 		else
 			trickleDown(index);
 		return true;
 	}
-	
+
 	public void trickleUp(int index)
 	{
-		Node bottom = heaparray[index];
-		int parent = (index - 1) / 2;
-		while(index > 0 && heaparray[parent].idata < bottom.idata)
-		{
-			heaparray[parent] = heaparray[index];
+		int parent = (index -1) /2;
+		Node bottom =heaparray[index];
+		
+		while(index > 0 && heaparray[parent].idata < heaparray[index].idata){
+			heaparray[index] = heaparray[parent];
 			index = parent;
-			parent = (parent-1)/2;
+			parent = (parent -1) /2;
 		}
 		heaparray[index] = bottom;
 	}
-	
+
 	public void trickleDown(int index)
 	{
+		int largerChild;
 		Node top = heaparray[index];
-		int largerchild;
-		while(index < currentSize/ 2)
-		{
-			int leftChild = 2 * index + 1;
-			int rightChild = 2 * index + 2;
-			if(rightChild < currentSize && heaparray[rightChild].idata > heaparray[leftChild].idata)
-				largerchild = rightChild;
-			else
-				largerchild = leftChild;
+		
+		while(index < currentSize/2){
 			
-			if(top.idata >= heaparray[largerchild].idata)
+			int left = 2*index + 1;
+			int right = 2*index + 2;
+			
+			if(right < currentSize && heaparray[left].idata < heaparray[right].idata)
+				largerChild = right;
+			else
+				largerChild = left;
+			
+			if(top.idata >= heaparray[largerChild].idata)
 				break;
-			heaparray[index] = heaparray[largerchild];
-			index = largerchild;
+			
+			heaparray[index] = heaparray[largerChild];
+			index = largerChild;
 		}
+		
 		heaparray[index] = top;
 	}
-	
-	public void displayHeap()
-	{
-		
+
+	public void displayHeap() {
+
 	}
 }
