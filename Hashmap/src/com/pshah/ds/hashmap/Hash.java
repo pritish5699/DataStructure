@@ -45,7 +45,7 @@ public class Hash<K, V> {
 		
 		for(Cell<K, V> c : collied){
 			
-			if(c.equals(key))
+			if(c.equivalent(key))
 				return c.getValue();
 		}
 		
