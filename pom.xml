@@ -29,11 +29,11 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>Graph</module>
-		<module>Hashmap</module>
-		<module>LRU</module>
-		<module>Trie</module>
-		<module>Heap/src/heap</module>
-		<module>Tree/src/tree</module>
+		<module>graph</module>
+		<module>hashmap</module>
+		<module>cache</module>
+		<module>trie</module>
+		<module>heap</module>
+		<module>tree</module>
 	</modules>
 </project>
