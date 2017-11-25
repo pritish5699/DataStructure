@@ -1,4 +1,4 @@
-package com.pshah.ds.graph;
+package com.pshah.ds.adjacencymatrix.graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
